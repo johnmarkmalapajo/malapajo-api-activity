@@ -1,32 +1,38 @@
-const dishes = [
+const mongoose = require('mongoose');
+const dishSchema = new mongoose.Schema({
+    
+  name: {
+    type: String, 
+    required: true, 
+    unique: true, 
+  },
+  price: {
+    type: Number, 
+    required: true,
+    min: [0, 'Price cannot be negative'], 
+    max: [1000, 'Price cannot exceed 1000'], 
+  },
+  category: {
+    type: String,
+    enum: ['Starters', 'Main', 'Dessert', 'Drinks'],
+    required: true,
+    message: `{VALUE} is not a valid category`, 
+  },
+  isVegetarian: {
+    type: Boolean, 
+    default: false, 
+  },
+  reviews: [
     {
-        id: 1,
-        name:  'Spicy Burger',
-        price: 12.99,
-        category: 'Lunch',
-        isVegetarian: false,
-    },
-    {
-        id: 2,
-        name:  'Ceasar Salad',
-        price: 8.5,
-        category: 'Starters',
-        isVegetarian: false,
-    },
-    {
-        id: 3,
-        name:  'Chocolate Lava Cake',
-        price: 6.0,
-        category: 'Dessert',
-        isVegetarian: true,
-    },
-    {
-        id: 4,
-        name:  'Grilled Salmon',
-        price: 18.0,
-        category: 'Dinner',
-        isVegetarian: false,
-    },
-];
+      user: String, 
+      rating: {type: Number, min: 1, max: 5}, 
+      comment: String
+    }
+  ],
+  chef: {
+  type: mongoose.Schema.Types.ObjectId, 
+  ref: 'Chef' 
+  }
+});
 
-module.exports = dishes; 
+module.exports = mongoose.model('Dish', dishSchema);

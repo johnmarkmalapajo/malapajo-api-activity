@@ -1,5 +1,7 @@
+ACTIVITY 1 - John Mark Malapajo
+
 1. Markdown
-2. # RESTful API Activity - [Your Name]
+2. # RESTful API Activity - [John Mark Malapajo]
 3. ## Best Practices Implementation
 4. **1. Environment Variables:**
 5. - Why did we put `BASE_URI` in `.env` instead of hardcoding it?
@@ -17,3 +19,14 @@ Answer: We use 201 Created when a new resource is successfully created, such as 
 16. - (Paste a screenshot of a successful GET request here)
 
 ![alt text](image.png)
+
+
+--------------------------------------------------------------------------------------------------------------------------
+ACTIVITY 3
+Deliverable - John Mark Malapajo
+
+1. Why did I choose to Embed the [Review/Tag/Log]?
+I chose to embed the Review, Tag, and Log because they are small pieces of data that are directly related to the main document. They do not need to exist on their own and are usually used together with the parent record. Embedding them makes data retrieval faster and keeps related information in one place.
+
+2. "Why did I choose to Reference the [Chef/User/Guest]?
+I chose to reference the Chef, User, and Guest because they are separate entities that can exist independently from other records. They may also be connected to multiple documents. Using references helps avoid repeating the same data and keeps the database organized and efficient.
