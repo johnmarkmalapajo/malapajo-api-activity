@@ -30,3 +30,18 @@ I chose to embed the Review, Tag, and Log because they are small pieces of data 
 
 2. "Why did I choose to Reference the [Chef/User/Guest]?
 I chose to reference the Chef, User, and Guest because they are separate entities that can exist independently from other records. They may also be connected to multiple documents. Using references helps avoid repeating the same data and keeps the database organized and efficient.
+
+
+
+
+HANDS-ON ACTIVITY 4
+Deliverable - John Mark Malapajo
+
+1. What is the difference between Authentication and Authorization in our code?
+- Authentication verifies the identity of a user. In our code, this happens when a user logs in by providing their email and password. The system checks the credentials and, if valid, generates a JWT JSON Web Token. Authorization, on the other hand, determines what an authenticated user is allowed to do. After authentication, protected routes check the user's permissions to decide whether the user can access or perform certain actions.
+
+2. Why did we use bcryptjs instead of saving passwords as plain text in MongoDB?
+- We use bcryptjs to hash passwords before storing them in the database for security reasons. If passwords were stored as plain text and the database was compromised, attackers would immediately see all user passwords. bcryptjs converts passwords into a secure hash that cannot easily be reversed. When a user logs in, the entered password is hashed again and compared with the stored hash. This ensures that the actual password is never stored or exposed in the database.
+
+3. What does the protect middleware do when it receives a JWT from the client?
+- The protect middleware verifies and validates the JWT sent by the client, usually in the Authorization header.
